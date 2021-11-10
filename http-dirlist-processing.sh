@@ -29,6 +29,13 @@ if [ -z "$1" ]
                                 i=$((i+1))
                         done
 
+                i=1
+                while [ $i -le $((x+1)) ]
+                        do
+                                cat $inputFile | cut -d '/' -f $i | sort | uniq >> $midFile
+                                i=$((i+1))
+                        done
+
 ### final filter down
 
                 cat $midFile | sort | uniq >> processed-list.txt
